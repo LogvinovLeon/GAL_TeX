@@ -9,7 +9,7 @@ Tex_Writer tex("output");
 int main(){
 	freopen("input.txt", "r", stdin);
 	cin >> A >> B;
-	C = A * B;
+	C = A + B;
 	tex.begin_math();
 	tex.print_matrix(C, '(', ')');
 	tex.end_math();
