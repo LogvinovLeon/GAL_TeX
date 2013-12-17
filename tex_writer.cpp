@@ -2,7 +2,7 @@
 
 Tex_Writer::Tex_Writer(std::string _filename){
 	filename = _filename;
-	file = fopen(_filename.c_str(), "w");
+	file = fopen((filename + ".tex").c_str(), "w");
 	fprintf(file, "\\documentclass[a4paper,11pt]{article}\n");
 	fprintf(file, "\\usepackage[utf8]{inputenc}\n");
 	fprintf(file, "\\usepackage[MeX]{polski}\n");
@@ -14,7 +14,8 @@ Tex_Writer::Tex_Writer(std::string _filename){
 Tex_Writer::~Tex_Writer(){
 	fprintf(file, "\\end{document}\n");
 	fclose(file);
-	system(("pdflatex " + filename).c_str());
+	system(("pdflatex " + filename + ".tex").c_str());
+	system(("open " + filename + ".pdf").c_str());
 }
 
 void Tex_Writer::begin_math(){

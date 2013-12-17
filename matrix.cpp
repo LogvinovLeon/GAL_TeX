@@ -2,7 +2,19 @@
 
 using namespace std;
 
-Matrix::Matrix(int height, int width) : height(height), width(width) {}
+Matrix::Matrix(int size) : height(size), width(size) {
+	array.resize(height);
+	for (int i = 0; i < height; ++i){
+		array[i].resize(size);
+		array[i][i] = Rational(1);
+	}
+}
+
+Matrix::Matrix(int height, int width) : height(height), width(width) {
+	array.resize(height);
+	for (int i = 0; i < height; ++i)
+		array[i].resize(width);
+}
 
 vector<Rational> &Matrix::operator[](int x){
 	return array[x];

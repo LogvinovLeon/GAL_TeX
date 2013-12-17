@@ -16,12 +16,10 @@ int Gauss::find_pivot_row(Matrix &A, int i, int j){
 
 void Gauss::solve(Matrix A, Matrix B){
 	assert(A.get_height() == B.get_height());
-	Tex_Writer tex("output.tex");
+	Tex_Writer tex("output");
 	tex.begin_math();
-	//tex.begin_math();
 	tex.print_matrix(A, '(', '|');
 	tex.print_matrix(B, '.', ')');
-	//tex.end_math();
 	int n = A.get_height(),
 		m = A.get_width(),
 		k = B.get_width();
@@ -43,10 +41,8 @@ void Gauss::solve(Matrix A, Matrix B){
 				A.add_row(row, step, -A[row][step]);
 			}
 		}
-		//tex.begin_math();
 		tex.print_matrix(A, '(', '|');
 		tex.print_matrix(B, '.', ')');
-		//tex.end_math();
 	}
 	tex.end_math();
 }

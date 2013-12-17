@@ -8,7 +8,9 @@ class Matrix{
 	
 public:
 
-	Matrix(int height = 0, int width = 0);
+	Matrix(int size = 0);
+
+	Matrix(int height, int width);
 	
 	std::vector<Rational> &operator[](int x);
 	
