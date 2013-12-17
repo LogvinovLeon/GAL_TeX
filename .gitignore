@@ -1,6 +1,9 @@
 # Compilled source
 main
 
+# Input
+*.txt
+
 # LaTeX temporary
 *.tex
 *.dvi
