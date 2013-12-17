@@ -1,3 +1,13 @@
+# Compilled source
+main
+
+# LaTeX temporary
+*.tex
+*.dvi
+*.aux
+*.pdf
+*.log
+
 # Compiled Object files
 *.slo
 *.lo
