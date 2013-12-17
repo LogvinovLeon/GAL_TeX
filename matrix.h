@@ -17,6 +17,8 @@ public:
 	friend std::istream &operator >>(std::istream &input, Matrix &a);
 
 	friend std::ostream &operator <<(std::ostream &output, Matrix x);
+
+	Matrix operator *(Matrix &A);
 	//a[w1]+=a[w2]*x;
 	void add_row(int w1, int w2, Rational x);
 

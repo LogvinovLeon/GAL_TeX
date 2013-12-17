@@ -1,5 +1,5 @@
 #include "matrix.h"
-
+#include <cassert>
 using namespace std;
 
 Matrix::Matrix(int size) : height(size), width(size) {
@@ -42,6 +42,17 @@ ostream &operator <<(ostream &output, Matrix x){
 	}
 	return output;
 }
+
+Matrix Matrix::operator *(Matrix &A){
+	assert(this->get_width() == A.get_height());
+	Matrix C(this->get_height(), A.get_width());
+	for (int i = 0; i < C.get_height(); ++i)
+		for (int j = 0; j < C.get_width(); ++j)
+			for (int k = 0; k < this->get_width(); ++k)
+				C[i][j] += (*this)[i][k] * A[k][j];
+	return C;
+}
+
 //a[w1]+=a[w2]*x;
 void Matrix::add_row(int w1, int w2, Rational x){
 	for (int j = 0; j < width; j++)
