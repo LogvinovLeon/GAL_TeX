@@ -12,7 +12,7 @@ public:
 
 	~Tex_Writer();
 
-	void print_matrix(Matrix &A, char open_brace = '(', char close_brace = ')');
+	void print_matrix(Matrix A, char open_brace = '(', char close_brace = ')');
 
 	void print_spec_symbol(std::string s);
 

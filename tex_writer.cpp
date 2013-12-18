@@ -26,7 +26,7 @@ void Tex_Writer::end_math(){
 	fprintf(file, "\\end{math}\n");
 }
 
-void Tex_Writer::print_matrix(Matrix &A, char open_brace, char close_brace){
+void Tex_Writer::print_matrix(Matrix A, char open_brace, char close_brace){
 	
 	fprintf(file, "\\left %c\n", open_brace);
 	fprintf(file, "\\begin{array}{");
