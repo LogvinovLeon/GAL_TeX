@@ -21,15 +21,13 @@ void Gauss::solve(Matrix A, Matrix B){
 	tex.begin_math();
 	tex.print_matrix(A, '(', '|');
 	tex.print_matrix(B, '.', ')');
-	tex.end_math();
 	int n = A.get_height(),
 		m = A.get_width(),
 		k = B.get_width();
 	bool free_variable[m];
 	memset(free_variable, 1, m);
 	for (int step = 0; step < std::min(n, m); step++){
-		tex.begin_math();
-		tex.print_spec_symbol("leadsto");
+		tex.put_equality();
 		int pivot_row = find_pivot_row(A, step, step);
 		if (A[pivot_row][step] != Rational(0)){
 			vector<string> transformations(n);
@@ -45,9 +43,9 @@ void Gauss::solve(Matrix A, Matrix B){
 					continue;
 				}
 				if (row == pivot_row)
-					transformations[row] = tex.get_transformation(Rational(1), step + 1, - A[row][step] / A[pivot_row][step], pivot_row + 1);
+					transformations[row] = tex.get_transformation(Rational(1), step + 1, - A[row][step] / c, pivot_row + 1);
 				else
-					transformations[row] = tex.get_transformation(Rational(1), row + 1, - A[row][step] / A[pivot_row][step], pivot_row + 1);
+					transformations[row] = tex.get_transformation(Rational(1), row + 1, - A[row][step] / c, pivot_row + 1);
 				B.add_row(row, step, -A[row][step]);
 				A.add_row(row, step, -A[row][step]);
 			}
@@ -55,6 +53,6 @@ void Gauss::solve(Matrix A, Matrix B){
 		}
 		tex.print_matrix(A, '(', '|');
 		tex.print_matrix(B, '.', ')');
-		tex.end_math();
 	}
+	tex.end_math();
 }

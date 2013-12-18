@@ -10,6 +10,7 @@ Tex_Writer::Tex_Writer(string _filename){
 	fprintf(file, "\\usepackage[MeX]{polski}\n");
 	fprintf(file, "\\usepackage{latexsym}\n");
 	fprintf(file, "\\usepackage{xfrac}\n");
+	fprintf(file, "\\usepackage{breqn}\n");
 	fprintf(file, "\\begin{document}\n");
 }
 
@@ -50,16 +51,20 @@ void Tex_Writer::print_string_vector(vector<string> v, char open_brace, char clo
 	fprintf(file, "\\right %c\n", close_brace);
 }
 
+void Tex_Writer::put_equality(){
+	fprintf(file, "=\n");
+}
+
 void Tex_Writer::print_spec_symbol(string s){
 	fprintf(file, "\\%s\n", s.c_str());
 }
 
 void Tex_Writer::begin_math(){
-	fprintf(file, "\\begin{math}\n");
+	fprintf(file, "\\begin{dmath*}\n");
 }
 
 void Tex_Writer::end_math(){
-	fprintf(file, "\\end{math}\n");
+	fprintf(file, "\\end{dmath*}\n");
 }
 
 string Tex_Writer::row_tex_format(int row){

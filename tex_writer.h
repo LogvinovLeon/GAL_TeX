@@ -16,6 +16,8 @@ public:
 
 	void print_string_vector(std::vector<std::string> v, char open_brace = '.', char close_brace = '.');
 
+	void put_equality();
+
 	void print_spec_symbol(std::string s);
 
 	void begin_math();
