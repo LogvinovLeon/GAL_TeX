@@ -3,14 +3,11 @@
 
 using namespace std;
 
-Matrix A, B, C;
-Tex_Writer tex("output");
+Matrix A, B;
+Gauss G;
 
 int main(){
 	freopen("input.txt", "r", stdin);
 	cin >> A >> B;
-	C = A + B;
-	tex.begin_math();
-	tex.print_matrix(C, '(', ')');
-	tex.end_math();
+	G.solve(A, B);
 }
