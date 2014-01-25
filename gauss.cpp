@@ -17,6 +17,14 @@ int Gauss::find_pivot_row(Matrix &A, int i, int j){
 	return max_element_row;
 }
 
+Matrix Gauss::invert(Matrix &A){
+	assert(A.get_height() == A.get_width());
+	Matrix Copy = Matrix(A);
+	Matrix I = Matrix(A.get_height());
+	reduce(Copy, I);
+	return I;
+}
+
 void Gauss::reduce(Matrix &A, Matrix &B){
 	assert(A.get_height() == B.get_height());
 	tex.begin_math();

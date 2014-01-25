@@ -10,6 +10,8 @@ public:
 
 	int find_pivot_row(Matrix &A, int i,int j);
 
+	Matrix invert(Matrix &A);
+
 	void reduce(Matrix &A, Matrix &B);
 
 };

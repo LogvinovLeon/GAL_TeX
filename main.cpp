@@ -8,7 +8,6 @@ Gauss G;
 
 int main(){
 	freopen("input.txt", "r", stdin);
-	cin >> A >> B;
-	C=A*B;
-	G.reduce(A,B);
+	cin >> A;
+	cout<<G.invert(A)*A<<endl;
 }
