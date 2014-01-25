@@ -6,12 +6,18 @@ class Gauss{
 
 public:
 
-	Gauss(std::string Filename = "output.tex");
+	Gauss(std::string Filename = "output");
 
 	int find_pivot_row(Matrix &A, int i,int j);
 
-	Matrix invert(Matrix &A);
+	Matrix invert(Matrix A);
 
 	void reduce(Matrix &A, Matrix &B);
+
+	Matrix multiply(Rational x, Matrix A);
+
+	Matrix multiply(Matrix A, Matrix B);
+
+	Matrix add(Matrix A, Matrix B);
 
 };

@@ -51,12 +51,12 @@ void Tex_Writer::print_string_vector(vector<string> v, char open_brace, char clo
 	fprintf(file, "\\right %c\n", close_brace);
 }
 
-void Tex_Writer::put_equality(){
-	fprintf(file, "=\n");
+void Tex_Writer::put_string(string s){
+	fprintf(file, "%s\n", s.c_str());
 }
 
 void Tex_Writer::print_spec_symbol(string s){
-	fprintf(file, "\\%s\n", s.c_str());
+	put_string("\\"+s);
 }
 
 void Tex_Writer::begin_math(){

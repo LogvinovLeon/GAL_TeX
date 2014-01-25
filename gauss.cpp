@@ -17,11 +17,10 @@ int Gauss::find_pivot_row(Matrix &A, int i, int j){
 	return max_element_row;
 }
 
-Matrix Gauss::invert(Matrix &A){
+Matrix Gauss::invert(Matrix A){
 	assert(A.get_height() == A.get_width());
-	Matrix Copy = Matrix(A);
 	Matrix I = Matrix(A.get_height());
-	reduce(Copy, I);
+	reduce(A, I);
 	return I;
 }
 
@@ -34,10 +33,10 @@ void Gauss::reduce(Matrix &A, Matrix &B){
 		m = A.get_width(),
 		k = B.get_width();
 	for (int step = 0; step < std::min(n, m); step++){
-		tex.put_equality();
+		tex.put_string("=");
 		int pivot_row = find_pivot_row(A, step, step);
+		vector<string> transformations(n);
 		if (A[pivot_row][step] != Rational(0)){
-			vector<string> transformations(n);
 			Rational c = A[pivot_row][step];
 			B.swap_rows(pivot_row, step);
 			A.swap_rows(pivot_row, step);
@@ -55,10 +54,43 @@ void Gauss::reduce(Matrix &A, Matrix &B){
 				B.add_row(row, step, -A[row][step]);
 				A.add_row(row, step, -A[row][step]);
 			}
-			tex.print_string_vector(transformations);
 		}
+		tex.print_string_vector(transformations);
 		tex.print_matrix(A, '(', '|');
 		tex.print_matrix(B, '.', ')');
 	}
 	tex.end_math();
+}
+
+Matrix Gauss::multiply(Rational x, Matrix A){
+	tex.begin_math();
+	tex.print_matrix(A);
+	tex.print_spec_symbol("cdot");
+	tex.put_string(x.to_tex_str());
+	tex.put_string("=");
+	tex.print_matrix(A * x);
+	tex.end_math();
+	return A * x;
+}
+
+Matrix Gauss::multiply(Matrix A, Matrix B){
+	tex.begin_math();
+	tex.print_matrix(A);
+	tex.print_spec_symbol("cdot");
+	tex.print_matrix(B);
+	tex.put_string("=");
+	tex.print_matrix(A * B);
+	tex.end_math();
+	return A * B;
+}
+
+Matrix Gauss::add(Matrix A, Matrix B){
+	tex.begin_math();
+	tex.print_matrix(A);
+	tex.put_string("+");
+	tex.print_matrix(B);
+	tex.put_string("=");
+	tex.print_matrix(A + B);
+	tex.end_math();
+	return A + B;
 }
