@@ -14,7 +14,7 @@ public:
 
 	void reduce(Matrix &A, Matrix &B);
 
-	Matrix multiply(Rational x, Matrix A);
+	Matrix multiply(Matrix A, Rational x);
 
 	Matrix multiply(Matrix A, Matrix B);
 

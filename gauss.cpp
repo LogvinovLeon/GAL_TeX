@@ -62,7 +62,7 @@ void Gauss::reduce(Matrix &A, Matrix &B){
 	tex.end_math();
 }
 
-Matrix Gauss::multiply(Rational x, Matrix A){
+Matrix Gauss::multiply(Matrix A, Rational x){
 	tex.begin_math();
 	tex.print_matrix(A);
 	tex.print_spec_symbol("cdot");
