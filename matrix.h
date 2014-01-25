@@ -19,6 +19,8 @@ public:
 
 	friend std::ostream &operator <<(std::ostream &output, Matrix x);
 
+	Matrix operator *(Rational x);
+
 	Matrix operator *(Matrix &A);
 
 	Matrix operator +(Matrix &A);

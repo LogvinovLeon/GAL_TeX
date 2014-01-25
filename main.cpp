@@ -3,11 +3,12 @@
 
 using namespace std;
 
-Matrix A, B;
+Matrix A, B, C;
 Gauss G;
 
 int main(){
 	freopen("input.txt", "r", stdin);
 	cin >> A >> B;
-	G.solve(A, B);
+	C=A*B;
+	G.reduce(A,B);
 }

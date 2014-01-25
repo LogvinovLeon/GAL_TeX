@@ -43,6 +43,14 @@ ostream &operator <<(ostream &output, Matrix x){
 	return output;
 }
 
+Matrix Matrix::operator *(Rational x){
+	Matrix C(this->get_height(), this->get_width());
+	for (int i = 0; i < C.get_height(); ++i)
+		for (int j = 0; j < C.get_width(); ++j)
+			C[i][j] = (*this)[i][j] * x;
+	return C;
+}
+
 Matrix Matrix::operator *(Matrix &A){
 	assert(this->get_width() == A.get_height());
 	Matrix C(this->get_height(), A.get_width());
