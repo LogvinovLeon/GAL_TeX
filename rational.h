@@ -7,22 +7,23 @@
 
 template <class R, class A> R cast(A a);
 
-class Rational{
-	int num, denum;
+class Rational
+{
+    int num, denum;
 
-	Rational norm(Rational x);
+    Rational norm(Rational x);
 
 public:
-    
+
     Rational(int x = 0, int y = 1);
 
     std::string to_str();
 
     std::string to_tex_str();
 
-	friend std::istream &operator >>(std::istream &input, Rational &x);
+    friend std::istream &operator >>(std::istream &input, Rational &x);
 
-	friend std::ostream &operator <<(std::ostream &output, Rational x);
+    friend std::ostream &operator <<(std::ostream &output, Rational x);
 
     bool operator <(Rational x);
 
@@ -46,11 +47,11 @@ public:
 
     void operator -=(Rational x);
 
-	Rational operator *(Rational x);
+    Rational operator *(Rational x);
 
     void operator *=(Rational x);
 
-	Rational operator /(Rational x);
+    Rational operator /(Rational x);
 
     void operator /=(Rational x);
 
