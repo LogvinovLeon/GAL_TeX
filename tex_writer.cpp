@@ -8,7 +8,7 @@ Tex_Writer::Tex_Writer(string _filename)
     file = fopen((filename + ".tex").c_str(), "w");
     fprintf(file, "\\documentclass[a4paper,11pt]{article}\n");
     fprintf(file, "\\usepackage[utf8]{inputenc}\n");
-    fprintf(file, "\\usepackage[MeX]{polski}\n");
+    //fprintf(file, "\\usepackage[MeX]{polski}\n");
     fprintf(file, "\\usepackage{latexsym}\n");
     fprintf(file, "\\usepackage{xfrac}\n");
     fprintf(file, "\\usepackage{breqn}\n");

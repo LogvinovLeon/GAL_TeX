@@ -2,7 +2,7 @@
 main
 
 # Input
-*.txt
+#*.txt
 
 # LaTeX temporary
 #*.tex
