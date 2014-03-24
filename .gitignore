@@ -2,13 +2,13 @@
 main
 
 # Input
-#*.txt
+*.txt
 
 # LaTeX temporary
-#*.tex
+*.tex
 *.dvi
 *.aux
-#*.pdf
+*.pdf
 *.log
 
 # Compiled Object files

@@ -10,7 +10,5 @@ int main()
 {
     freopen("input.txt", "r", stdin);
     cin >> A >> B;
-    C = A;
     G.reduce(A, B);
-    G.multiply(G.invert(C), C);
 }
