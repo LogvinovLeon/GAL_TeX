@@ -1,5 +1,6 @@
 #include "gauss.h"
 #include <iostream>
+#include <cstdio>
 
 using namespace std;
 

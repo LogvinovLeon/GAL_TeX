@@ -1,4 +1,6 @@
 #include "tex_writer.h"
+#include <cstdio>
+#include <cstdlib>
 
 using namespace std;
 
